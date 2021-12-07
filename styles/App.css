@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+#content {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: #c9e6ff;
+}
+#top-padding {
+  height: 30px;
+  flex: none;
+  background: blue;
+}
+#stuff {
+  flex: auto;
+  overflow-y: auto;
+  background-color: lightgreen;
+}
+/*for demo purpose */
