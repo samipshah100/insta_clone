@@ -122,8 +122,12 @@ export default function PrimarySearchAppBar() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <ButtonComponent primary>Log In</ButtonComponent>
-            <ButtonComponent>Sign Up</ButtonComponent>
+            <Box sx={{}}>
+              <ButtonComponent primary>Log In</ButtonComponent>
+            </Box>
+            <Box>
+              <ButtonComponent>Sign Up</ButtonComponent>
+            </Box>
           </Box>
         </Toolbar>
       </AppBar>
