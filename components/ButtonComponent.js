@@ -18,8 +18,10 @@ export default function ButtonComponent({ primary, children }) {
     >
       <Typography
         sx={{
-          fontSize: 12,
-          fontFamily: 'system-ui',
+          fontSize: 14,
+          fontWeight: 'bold',
+          textTransform: 'none',
+          // fontFamily: 'Segoe UI',
           color: primary ? 'white' : theme.insta.button,
           // TODO
         }}

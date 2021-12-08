@@ -3,14 +3,8 @@ import { styled, alpha, useTheme } from '@mui/material/styles'
 import AppBar from '@mui/material/AppBar'
 import Box from '@mui/material/Box'
 import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
 import InputBase from '@mui/material/InputBase'
-import Badge from '@mui/material/Badge'
 import SearchIcon from '@mui/icons-material/Search'
-import MailIcon from '@mui/icons-material/Mail'
-import NotificationsIcon from '@mui/icons-material/Notifications'
-
 import ButtonComponent from './ButtonComponent'
 
 const Search = styled('div')(({ theme }) => ({
@@ -49,26 +43,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   border: `1px solid ${theme.insta.border}`,
   marginLeft: 20,
   paddingLeft: 10,
-  // color: 'inherit',
-  // '& .MuiInputBase-input': {
-  //   padding: theme.spacing(1, 1, 1, 0),
-  //   // vertical padding + font size from searchIcon
-  //   paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-  //   transition: theme.transitions.create('width'),
-  //   width: '100%',
-  //   [theme.breakpoints.up('md')]: {
-  //     width: '20ch',
-  //   },
-  // },
+  borderRadius: 4,
 }))
 
 export default function PrimarySearchAppBar() {
-  const [anchorEl, setAnchorEl] = React.useState(null)
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
-
   const theme = useTheme()
-  const isMenuOpen = Boolean(anchorEl)
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
 
   return (
     <Box
@@ -78,51 +57,71 @@ export default function PrimarySearchAppBar() {
       }}
     >
       <AppBar
-        position="static"
+        position="inherit"
         sx={{
           // backgroundColor: 'red',
           backgroundColor: 'white',
+
           // display: 'flex',
-          alignItems: 'space-evenly',
+          // alignItems: 'space-evenly',
           // alignItems: 'flex-start',
           // justifyContent: 'center',
-          justifyContent: 'flex-start',
+          // justifyContent: 'flex-start',
         }}
       >
         <Toolbar
-          sx={
-            {
-              // display: 'flex',
-              // alignItems: 'space-evenly',
-              // justifyContent: 'space-evenly',
-            }
-          }
+          sx={{
+            maxWidth: 975,
+            height: 54,
+            maxHeight: 54,
+            minHeight: 54,
+            width: '100%',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
         >
-          <Typography
-            variant="h6"
-            noWrap
-            component="span"
-            sx={{
-              color: theme.insta.text,
-            }}
-          >
-            Instagram
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
+          <img src="/instaLogo.png" style={{ width: 100, height: 30 }} />
+          <Box sx={{ display: { sm: 'none', md: 'flex' } }}>
+            <Search>
               <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              sx={{
-                color: theme.insta.subtitleText,
-                fontSize: 12,
-              }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <Box sx={{}}>
+              {/* <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper> */}
+
+              <InputBase
+                sx={{
+                  height: 23,
+                  width: 216,
+                  border: `1px solid ${theme.insta.border}`,
+                  // marginLeft: 20,
+                  // paddingLeft: 10,
+                  padding: 0,
+                  borderRadius: 1,
+                  color: theme.insta.subtitleText,
+                  fontSize: 12,
+                }}
+                placeholder="Search..."
+                startAdornment={
+                  <SearchIcon
+                    sx={{
+                      color: theme.insta.searchPlaceholderText,
+                      height: 15,
+                    }}
+                  />
+                }
+              />
+              {/* <StyledInputBase
+                placeholder="Search…"
+                sx={{
+                }}
+              /> */}
+            </Search>
+          </Box>
+          <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+            <Box sx={{ marginRight: '10px' }}>
               <ButtonComponent primary>Log In</ButtonComponent>
             </Box>
             <Box>
