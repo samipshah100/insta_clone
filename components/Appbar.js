@@ -27,25 +27,6 @@ const Search = styled('div')(({ theme }) => ({
   },
 }))
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}))
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  height: 23,
-  width: 216,
-  border: `1px solid ${theme.insta.border}`,
-  marginLeft: 20,
-  paddingLeft: 10,
-  borderRadius: 4,
-}))
-
 export default function PrimarySearchAppBar() {
   const theme = useTheme()
 
@@ -54,6 +35,10 @@ export default function PrimarySearchAppBar() {
       sx={{
         flexGrow: 1,
         display: 'flex',
+        maxHeight: 55,
+        height: 54,
+        maxHeight: 54,
+        minHeight: 54,
       }}
     >
       <AppBar
@@ -61,20 +46,23 @@ export default function PrimarySearchAppBar() {
         sx={{
           // backgroundColor: 'red',
           backgroundColor: 'white',
-
           // display: 'flex',
           // alignItems: 'space-evenly',
           // alignItems: 'flex-start',
           // justifyContent: 'center',
           // justifyContent: 'flex-start',
+          // height: 54,
+          // maxHeight: 54,
+          // minHeight: 54,
         }}
       >
         <Toolbar
+          variant="dense"
           sx={{
             maxWidth: 975,
-            height: 54,
-            maxHeight: 54,
-            minHeight: 54,
+            // height: 54,
+            // maxHeight: 54,
+            // minHeight: 54,
             width: '100%',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -83,24 +71,30 @@ export default function PrimarySearchAppBar() {
             marginRight: 'auto',
           }}
         >
-          <img src="/instaLogo.png" style={{ width: 100, height: 30 }} />
-          <Box sx={{ display: { sm: 'none', md: 'flex' } }}>
+          <img
+            src="/images/instaLogo.png"
+            style={{ width: 100, marginTop: 8, height: 30 }}
+          />
+          <Box
+            sx={{
+              display: { sm: 'none', md: 'flex' },
+              height: 28,
+              width: 215,
+              height: 28,
+              height: 22,
+            }}
+          >
             <Search>
-              <SearchIcon />
-              {/* <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper> */}
-
               <InputBase
                 sx={{
-                  height: 23,
+                  height: 28,
                   width: 216,
                   border: `1px solid ${theme.insta.border}`,
                   // marginLeft: 20,
                   // paddingLeft: 10,
                   padding: 0,
                   borderRadius: 1,
-                  color: theme.insta.subtitleText,
+                  color: theme.insta.searchPlaceholderText,
                   fontSize: 12,
                 }}
                 placeholder="Search..."

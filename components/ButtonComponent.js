@@ -1,10 +1,10 @@
 import { useTheme } from '@mui/material/styles'
 import { Button, Typography } from '@mui/material'
 export default function ButtonComponent({ primary, children }) {
-  console.log(
-    '🚀 ~ file: ButtonComponent.js ~ line 4 ~ ButtonComponent ~ primary',
-    primary
-  )
+  // console.log(
+  //   '🚀 ~ file: ButtonComponent.js ~ line 4 ~ ButtonComponent ~ primary',
+  //   primary
+  // )
   const theme = useTheme()
   return (
     <Button

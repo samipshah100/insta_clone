@@ -28,10 +28,11 @@ const theme = createTheme({
   },
   insta: {
     // searchBackground: 'green',
+
     searchBackground: '#fafafa',
+    searchPlaceholderText: '#8E8E8E',
     bioBackground: '#fafafa',
-    border: '#dcdadb',
-    searchPlaceholderText: '#dcdadb',
+    border: '#DBDBDB',
     text: '#262626',
     linkText: '#0f4273',
     button: '#0095f6',
