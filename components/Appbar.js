@@ -7,25 +7,7 @@ import InputBase from '@mui/material/InputBase'
 import SearchIcon from '@mui/icons-material/Search'
 import ButtonComponent from './ButtonComponent'
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  // backgroundColor: alpha(theme.palette.common.white, 0.15),
-  // '&:hover': {
-  //   backgroundColor: alpha(theme.palette.common.white, 0.25),
-  // },
-  // backgroundColor: 'white',
-  backgroundColor: theme.insta.searchBackground,
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  height: 23,
-  width: 216,
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}))
+// const Search = styled('div')(({ theme }) => ())
 
 export default function PrimarySearchAppBar() {
   const theme = useTheme()
@@ -39,6 +21,7 @@ export default function PrimarySearchAppBar() {
         height: 54,
         maxHeight: 54,
         minHeight: 54,
+        alignItems: 'center',
       }}
     >
       <AppBar
@@ -80,11 +63,25 @@ export default function PrimarySearchAppBar() {
               display: { sm: 'none', md: 'flex' },
               height: 28,
               width: 215,
-              height: 28,
-              height: 22,
             }}
           >
-            <Search>
+            {/* Search Box */}
+            <Box
+              sx={{
+                position: 'relative',
+                borderRadius: theme.shape.borderRadius,
+                backgroundColor: theme.insta.searchBackground,
+                // marginRight: theme.spacing(2),
+                marginLeft: 0,
+                width: '100%',
+                height: 28,
+                width: 215,
+                // [theme.breakpoints.up('sm')]: {
+                //   marginLeft: theme.spacing(3),
+                //   width: 'auto',
+                // },
+              }}
+            >
               <InputBase
                 sx={{
                   height: 28,
@@ -112,7 +109,7 @@ export default function PrimarySearchAppBar() {
                 sx={{
                 }}
               /> */}
-            </Search>
+            </Box>
           </Box>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             <Box sx={{ marginRight: '10px' }}>
