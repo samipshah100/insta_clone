@@ -66,6 +66,8 @@ export default function Appbar(props) {
             variant="dense"
             sx={{
               maxWidth: 975,
+              paddingRight: 20,
+              paddingLeft: 20,
               // height: 54,
               // maxHeight: 54,
               // minHeight: 54,

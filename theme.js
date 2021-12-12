@@ -31,7 +31,8 @@ const theme = createTheme({
 
     searchBackground: '#fafafa',
     searchPlaceholderText: '#8E8E8E',
-    bioBackground: '#fafafa',
+    // background: 'red',
+    background: '#fafafa',
     border: '#DBDBDB',
     text: '#262626',
     linkText: '#0f4273',
