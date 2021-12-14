@@ -33,27 +33,28 @@ export default function Appbar(props) {
 
   const isLoggedIn = true
   return (
-    <HideOnScroll {...props}>
-      <Box
-        sx={{
-          flexGrow: 1,
-          display: 'flex',
-          maxHeight: 55,
-          height: 54,
-          maxHeight: 54,
-          minHeight: 54,
-          alignItems: 'center',
-        }}
-      >
+    <Box
+      sx={{
+        // flexGrow: 1,
+        display: 'flex',
+        width: '100%',
+        maxHeight: 55,
+        height: 54,
+        // minHeight: 54,
+        alignItems: 'center',
+      }}
+      id="appbarContainer_"
+    >
+      <HideOnScroll id="hideonscroll_" {...props}>
         <AppBar
+          id="appbar_"
           position="inherit"
           elevation={0}
           sx={{
             // backgroundColor: 'red',
             backgroundColor: 'white',
             borderBottom: `1px ${theme.insta.border} solid`,
-            // display: 'flex',
-            // alignItems: 'space-evenly',
+            display: 'flex',
             // alignItems: 'flex-start',
             // justifyContent: 'center',
             // justifyContent: 'flex-start',
@@ -63,80 +64,92 @@ export default function Appbar(props) {
           }}
         >
           <Toolbar
+            id="toolbar_"
             variant="dense"
             sx={{
-              maxWidth: 975,
-              paddingRight: 20,
-              paddingLeft: 20,
+              // TODO: maxwidth change kar aur uske bad check it with the component
+              display: 'flex',
+              justifyContent: 'space-between',
+              // maxWidth: 975,
+              paddingRight: '20px',
+              paddingLeft: '20px',
               // height: 54,
               // maxHeight: 54,
               // minHeight: 54,
-              width: '100%',
+              // width: '100%',
               alignItems: 'center',
-              justifyContent: 'space-between',
+              // justifyContent: 'space-between',
               flexDirection: 'row',
-              marginLeft: 'auto',
-              marginRight: 'auto',
+              // marginLeft: 'auto',
+              // marginRight: 'auto',
             }}
           >
             <img
+              id="imagelogo"
               src="/images/instaLogo.png"
               style={{ width: 100, marginTop: 8, height: 30 }}
             />
-            <Box
+            {/* <Box
+              id="idunno"
               sx={{
                 display: { sm: 'none', md: 'flex' },
                 height: 28,
                 width: 215,
               }}
+            > */}
+            {/* Search Box */}
+            <Box
+              id="searchboxcontainer"
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                // display: 'flex',
+                position: 'relative',
+                borderRadius: theme.shape.borderRadius,
+                backgroundColor: theme.insta.searchBackground,
+                // marginRight: theme.spacing(2),
+                marginLeft: 0,
+                height: 28,
+                width: 215,
+                // [theme.breakpoints.up('sm')]: {
+                //   marginLeft: theme.spacing(3),
+                //   width: 'auto',
+                // },
+              }}
             >
-              {/* Search Box */}
-              <Box
+              <InputBase
                 sx={{
-                  position: 'relative',
-                  borderRadius: theme.shape.borderRadius,
-                  backgroundColor: theme.insta.searchBackground,
-                  // marginRight: theme.spacing(2),
-                  marginLeft: 0,
-                  width: '100%',
                   height: 28,
-                  width: 215,
-                  // [theme.breakpoints.up('sm')]: {
-                  //   marginLeft: theme.spacing(3),
-                  //   width: 'auto',
-                  // },
+                  width: 216,
+                  border: `1px solid ${theme.insta.border}`,
+                  // marginLeft: 20,
+                  // paddingLeft: 10,
+                  padding: 0,
+                  borderRadius: 1,
+                  color: theme.insta.searchPlaceholderText,
+                  fontSize: 12,
                 }}
-              >
-                <InputBase
-                  sx={{
-                    height: 28,
-                    width: 216,
-                    border: `1px solid ${theme.insta.border}`,
-                    // marginLeft: 20,
-                    // paddingLeft: 10,
-                    padding: 0,
-                    borderRadius: 1,
-                    color: theme.insta.searchPlaceholderText,
-                    fontSize: 12,
-                  }}
-                  placeholder="Search..."
-                  startAdornment={
-                    <SearchIcon
-                      sx={{
-                        color: theme.insta.searchPlaceholderText,
-                        height: 15,
-                      }}
-                    />
-                  }
-                />
-                {/* <StyledInputBase
-                placeholder="Search…"
-                sx={{
-                }}
-              /> */}
-              </Box>
+                placeholder="Search..."
+                startAdornment={
+                  <SearchIcon
+                    sx={{
+                      color: theme.insta.searchPlaceholderText,
+                      height: 15,
+                    }}
+                  />
+                }
+              />
             </Box>
-            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+            {/* </Box> */}
+
+            {/* logged in user icons */}
+            <Box
+              id="loggedinicons_"
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                // display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
               {!isLoggedIn ? (
                 <>
                   <Box sx={{ marginRight: '10px' }}>
@@ -166,7 +179,7 @@ export default function Appbar(props) {
             </Box>
           </Toolbar>
         </AppBar>
-      </Box>
-    </HideOnScroll>
+      </HideOnScroll>
+    </Box>
   )
 }

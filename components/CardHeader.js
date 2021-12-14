@@ -1,9 +1,10 @@
 import React from 'react'
-import { Avatar, Box, Typography } from '@mui/material'
+import { Avatar, ButtonBase, Box, Typography } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
-
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 export default function CardHeader() {
   const theme = useTheme()
+  const handleClickMenu = () => {}
 
   return (
     <Box
@@ -48,8 +49,15 @@ export default function CardHeader() {
 
           display: 'flex',
           flexDirection: 'row',
+          ml: 'auto',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
-      ></Box>
+      >
+        <ButtonBase onClick={handleClickMenu}>
+          <MoreHorizIcon />
+        </ButtonBase>
+      </Box>
     </Box>
   )
 }

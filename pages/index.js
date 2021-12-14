@@ -48,8 +48,8 @@ export default function Index() {
               // flex: '0 0 100%',
             }}
           >
-            {[1, 2].map(() => (
-              <FeedItem />
+            {[1, 2].map((item) => (
+              <FeedItem key={item.toString()} />
             ))}
           </Box>
           <RightSidebar />
