@@ -9,12 +9,13 @@ export default function CardContent() {
   const path = 'https://picsum.photos/614'
   return (
     <Box
+      id="cardcontent_"
       sx={{
         maxWidth: 614,
         //  minHeight: ,
         maxHeight: 614,
         height: 614,
-        width: 614,
+        // width: 614,
         position: 'relative',
       }}
     >

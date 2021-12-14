@@ -67,19 +67,35 @@ export default function Appbar(props) {
             id="toolbar_"
             variant="dense"
             sx={{
-              // TODO: maxwidth change kar aur uske bad check it with the component
               display: 'flex',
+              flexDirection: 'row',
               justifyContent: 'space-between',
-              // maxWidth: 975,
-              paddingRight: '20px',
-              paddingLeft: '20px',
+              alignItems: 'center',
+              // maxWidth: '975px',
+              // paddingRight: '100px',
+              // paddingLeft: '100px',
+              paddingRight: {
+                xs: 'auto',
+                md: '70px',
+                lg: '300px',
+              },
+              paddingLeft: {
+                xs: 'auto',
+                md: '70px',
+                lg: '300px',
+              },
+              marginRight: {
+                xs: 'auto',
+                md: '0px',
+              },
+              marginLeft: {
+                xs: 'auto',
+                md: '0px',
+              },
               // height: 54,
               // maxHeight: 54,
               // minHeight: 54,
               // width: '100%',
-              alignItems: 'center',
-              // justifyContent: 'space-between',
-              flexDirection: 'row',
               // marginLeft: 'auto',
               // marginRight: 'auto',
             }}
