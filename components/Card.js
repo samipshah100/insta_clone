@@ -4,10 +4,11 @@ import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import CardHeader from '@/components/CardHeader'
 import CardContent from '@/components/CardContent'
-export default function Card() {
+export default function Card({}) {
   const theme = useTheme()
   return (
     <Box
+      id="cardcontainer_"
       sx={{
         // maxWidth: 614,
         display: 'flex',
@@ -24,7 +25,6 @@ export default function Card() {
       {/* <CardButtons/>
       <CardComments/>
 <CardAddComment/> */}
-      test
     </Box>
   )
 }

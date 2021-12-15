@@ -5,8 +5,8 @@ import styles from './CardContent.module.css'
 import Image from 'next/image'
 export default function CardContent() {
   const theme = useTheme()
-
   const path = 'https://picsum.photos/614'
+
   return (
     <Box
       id="cardcontent_"
@@ -21,11 +21,14 @@ export default function CardContent() {
     >
       <Image
         src={path}
+        // src="/images/pic.jpeg"
         layout="fill"
+        // height={600}
+        // width={600}
         className={styles.image}
-        priority={true}
+        priority
       />
-      <img src="/images/instaLogo.png" />
+      {/* <img src="/images/instaLogo.png" /> */}
     </Box>
   )
 }

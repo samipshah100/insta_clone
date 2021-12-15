@@ -1,10 +1,11 @@
 import * as React from 'react'
-import Appbar from '@/components/Appbar'
+import Appbar from '@/components/TopAppbar'
 
 import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import RightSidebar from '@/components/RightSidebar'
-import FeedItem from '@/components/Card'
+import Card from '@/components/Card'
+import Layout from '@/components/Layout'
 
 export default function Index() {
   const theme = useTheme()
@@ -15,18 +16,17 @@ export default function Index() {
   const isLoggedIn = true
 
   return (
-    <>
-      <Appbar />
-
+    <Layout isLoggedIn={isLoggedIn}>
       <Box
+        id="indexContainer_"
         sx={{
           backgroundColor: theme.insta.background,
-          height: '100vh',
+          // height: '100vh',
         }}
       >
         {/* Content */}
         <Box
-          id="content"
+          id="contentContainer_"
           sx={{
             paddingTop: '30px',
             maxWidth: 960,
@@ -41,6 +41,7 @@ export default function Index() {
         >
           {/* feed  */}
           <Box
+            id="feedcontainer_"
             sx={{
               display: 'flex',
               flexDirection: 'column',
@@ -52,12 +53,12 @@ export default function Index() {
             }}
           >
             {[1, 2].map((item) => (
-              <FeedItem key={item.toString()} />
+              <Card key={item.toString()} />
             ))}
           </Box>
           <RightSidebar />
         </Box>
       </Box>
-    </>
+    </Layout>
   )
 }

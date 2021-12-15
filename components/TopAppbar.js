@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { styled, alpha, useTheme } from '@mui/material/styles'
+import { useTheme } from '@mui/material/styles'
 import AppBar from '@mui/material/AppBar'
 import { Box, Avatar } from '@mui/material'
 import Toolbar from '@mui/material/Toolbar'
@@ -15,7 +15,7 @@ import Discover from '@/icons/Discover'
 import Liked from '@/icons/Liked'
 import CameraIcon from '@/icons/CameraIcon'
 
-export default function Appbar(props) {
+export default function TopAppbar(props) {
   const theme = useTheme()
 
   function HideOnScroll(props) {
@@ -32,7 +32,7 @@ export default function Appbar(props) {
     )
   }
 
-  const isLoggedIn = true
+  const { isLoggedIn } = props
   return (
     <Box
       sx={{

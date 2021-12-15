@@ -2,10 +2,9 @@ import React from 'react'
 
 export default function SearchIcon() {
   return (
-    <div>
+    <>
       <svg
         aria-label="Search &amp; Explore"
-        class="_8-yf5 "
         color="#262626"
         fill="#262626"
         height="24"
@@ -33,6 +32,6 @@ export default function SearchIcon() {
           y2="22"
         ></line>
       </svg>
-    </div>
+    </>
   )
 }

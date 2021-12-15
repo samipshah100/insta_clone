@@ -11,7 +11,7 @@ export default function HomeFeed() {
         // hide on screens smaller than md = laptop
         display: { xs: 'none', md: 'flex' },
         marginLeft: '28px',
-        flex: '0 0 100%',
+        // flex: '0 0 100%',
 
         maxWidth: 293,
         flexDirection: 'column',

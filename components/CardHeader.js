@@ -8,6 +8,7 @@ export default function CardHeader() {
 
   return (
     <Box
+      id="cardheadercontainer_"
       sx={{
         height: '60px',
         display: 'flex',
@@ -17,6 +18,7 @@ export default function CardHeader() {
     >
       {/* avatar and name */}
       <Box
+        id="avatarnamecontainer_"
         sx={{
           display: 'flex',
           flexDirection: 'row',
@@ -25,7 +27,9 @@ export default function CardHeader() {
         }}
       >
         <Avatar
+          id="avatar_"
           alt="a"
+          src="./images/samip.jpeg"
           sx={{
             height: 32,
             width: 32,
@@ -33,17 +37,24 @@ export default function CardHeader() {
           }}
         />
         <Typography
+          as="span"
+          id="username_"
           sx={{
             fontWeight: 'bold',
             color: theme.insta.text,
             fontSize: 14,
           }}
         >
-          Test1
+          codefinity_official
         </Typography>
       </Box>
       {/* menu */}
-      <Box
+      {/* <Box
+        id="cardmenucontainer_"
+        sx={{}}
+      > */}
+      <ButtonBase
+        id="cardmenucontiner_"
         sx={{
           width: '50px',
 
@@ -53,11 +64,11 @@ export default function CardHeader() {
           justifyContent: 'center',
           alignItems: 'center',
         }}
+        onClick={handleClickMenu}
       >
-        <ButtonBase onClick={handleClickMenu}>
-          <MoreHorizIcon />
-        </ButtonBase>
-      </Box>
+        <MoreHorizIcon />
+      </ButtonBase>
     </Box>
+    // </Box>
   )
 }
