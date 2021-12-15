@@ -6,8 +6,10 @@ import { Box } from '@mui/material'
 import RightSidebar from '@/components/RightSidebar'
 import Card from '@/components/Card'
 import Layout from '@/components/Layout'
+import LinearProgress from '@/components/LinearProgress'
 
-export default function Index() {
+export default function Index({ list }) {
+  console.log('🚀 ~ file: index.js ~ line 11 ~ Index ~ list', list)
   const theme = useTheme()
   // 614
   // 28
@@ -16,12 +18,11 @@ export default function Index() {
   const isLoggedIn = true
 
   return (
-    <Layout isLoggedIn={isLoggedIn}>
+    <Layout isLoading={!list} isLoggedIn={isLoggedIn}>
       <Box
         id="indexContainer_"
         sx={{
           backgroundColor: theme.insta.background,
-          // height: '100vh',
         }}
       >
         {/* Content */}
@@ -52,13 +53,24 @@ export default function Index() {
               // flex: '0 0 100%',
             }}
           >
-            {[1, 2].map((item) => (
-              <Card key={item.toString()} />
+            {list.map((item) => (
+              <Card item={item} key={item.toString()} />
             ))}
           </Box>
-          <RightSidebar />
+          <RightSidebar list={list} />
         </Box>
       </Box>
     </Layout>
   )
+}
+
+export async function getServerSideProps() {
+  // const url = 'https://reqres.in/api/users?delay=3'
+  const url = 'https://picsum.photos/v2/list?limit=10'
+  const res = await fetch(url)
+  const list = await res.json()
+
+  return {
+    props: { list },
+  }
 }

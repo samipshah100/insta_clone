@@ -4,7 +4,8 @@ import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import CardHeader from '@/components/CardHeader'
 import CardContent from '@/components/CardContent'
-export default function Card({}) {
+export default function Card({ item }) {
+  console.log('🚀 ~ file: Card.js ~ line 8 ~ Card ~ item', item)
   const theme = useTheme()
   return (
     <Box
@@ -16,12 +17,10 @@ export default function Card({}) {
         border: `${theme.insta.border} 1px solid`,
         marginBottom: 4,
         backgroundColor: '#fff',
-
-        // flex: '0 0 100%',
       }}
     >
-      <CardHeader />
-      <CardContent />
+      <CardHeader item={item} />
+      <CardContent item={item} />
       {/* <CardButtons/>
       <CardComments/>
 <CardAddComment/> */}

@@ -16,6 +16,7 @@ const theme = createTheme({
       border: '#dcdadb',
       searchPlaceholderText: '#dcdadb',
       text: '#dcdadb',
+      textSecondary: '#8E8E8E',
       linkText: '#0f4273',
       button: '#0095f6',
       buttonText: 'white',
@@ -31,6 +32,7 @@ const theme = createTheme({
 
     searchBackground: '#fafafa',
     searchPlaceholderText: '#8E8E8E',
+    textSecondary: '#8E8E8E',
     // background: 'red',
     background: '#fafafa',
     border: '#DBDBDB',
@@ -40,6 +42,20 @@ const theme = createTheme({
     buttonText: 'white',
     icon: '#908e8f',
     subtitleText: '#929292',
+  },
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
   },
 })
 
