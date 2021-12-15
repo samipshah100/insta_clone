@@ -11,6 +11,9 @@ export default function Index() {
   // 614
   // 28
   // 293
+
+  const isLoggedIn = true
+
   return (
     <>
       <Appbar />

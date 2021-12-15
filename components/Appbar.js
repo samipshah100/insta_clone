@@ -13,6 +13,7 @@ import Message from '@/icons/Message'
 import AddIcon from '@/icons/AddIcon'
 import Discover from '@/icons/Discover'
 import Liked from '@/icons/Liked'
+import CameraIcon from '@/icons/CameraIcon'
 
 export default function Appbar(props) {
   const theme = useTheme()
@@ -84,14 +85,7 @@ export default function Appbar(props) {
                 md: '70px',
                 lg: '300px',
               },
-              marginRight: {
-                xs: 'auto',
-                md: '0px',
-              },
-              marginLeft: {
-                xs: 'auto',
-                md: '0px',
-              },
+
               // height: 54,
               // maxHeight: 54,
               // minHeight: 54,
@@ -100,11 +94,34 @@ export default function Appbar(props) {
               // marginRight: 'auto',
             }}
           >
-            <img
-              id="imagelogo"
-              src="/images/instaLogo.png"
-              style={{ width: 100, marginTop: 8, height: 30 }}
-            />
+            {/* camericon for mobile */}
+            <Box id="cameraicon" sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <CameraIcon />
+            </Box>
+
+            {/* Logo */}
+            <Box
+              id="logocontainer_"
+              sx={{
+                display: 'flex',
+                width: 110,
+                height: 30,
+                marginRight: {
+                  xs: 'auto',
+                  md: '0px',
+                },
+                marginLeft: {
+                  xs: 'auto',
+                  md: '0px',
+                },
+              }}
+            >
+              <img
+                id="imagelogo"
+                src="/images/instaLogo.png"
+                // style={{ width: 100, height: 30 }}
+              />
+            </Box>
             {/* <Box
               id="idunno"
               sx={{
@@ -157,7 +174,18 @@ export default function Appbar(props) {
             </Box>
             {/* </Box> */}
 
-            {/* logged in user icons */}
+            {/* MOBILE - logged in message icon */}
+            <Box
+              id="loggedinicons_"
+              sx={{
+                display: { xs: 'flex', md: 'none' },
+                // display: 'flex',
+                flexDirection: 'row',
+              }}
+            >
+              <Message />
+            </Box>
+            {/* WEB - logged in user icons */}
             <Box
               id="loggedinicons_"
               sx={{
