@@ -4,8 +4,10 @@ import { useTheme } from '@mui/material/styles'
 import { Box } from '@mui/material'
 import CardHeader from '@/components/CardHeader'
 import CardContent from '@/components/CardContent'
+import CardButtons from '@/components/CardButtons'
+import CardComments from '@/components/CardComments'
 export default function Card({ item }) {
-  console.log('🚀 ~ file: Card.js ~ line 8 ~ Card ~ item', item)
+  // console.log('🚀 ~ file: Card.js ~ line 8 ~ Card ~ item', item)
   const theme = useTheme()
   return (
     <Box
@@ -21,9 +23,9 @@ export default function Card({ item }) {
     >
       <CardHeader item={item} />
       <CardContent item={item} />
-      {/* <CardButtons/>
-      <CardComments/>
-<CardAddComment/> */}
+      <CardButtons />
+      <CardComments />
+      {/* <CardAddComment/> */}
     </Box>
   )
 }

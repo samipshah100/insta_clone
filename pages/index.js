@@ -9,7 +9,7 @@ import Layout from '@/components/Layout'
 import LinearProgress from '@/components/LinearProgress'
 
 export default function Index({ list }) {
-  console.log('🚀 ~ file: index.js ~ line 11 ~ Index ~ list', list)
+  // console.log('🚀 ~ file: index.js ~ line 11 ~ Index ~ list', list)
   const theme = useTheme()
   // 614
   // 28
@@ -65,12 +65,16 @@ export default function Index({ list }) {
 }
 
 export async function getServerSideProps() {
-  // const url = 'https://reqres.in/api/users?delay=3'
-  const url = 'https://picsum.photos/v2/list?limit=10'
-  const res = await fetch(url)
-  const list = await res.json()
+  try {
+    // const url = 'https://reqres.in/api/users?delay=3'
+    const url = 'https://picsum.photos/v2/list?limit=10'
+    const res = await fetch(url)
+    const list = await res.json()
 
-  return {
-    props: { list },
+    return {
+      props: { list, error: null },
+    }
+  } catch (error) {
+    return { props: { error, list: null } }
   }
 }

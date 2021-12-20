@@ -14,6 +14,7 @@ const theme = createTheme({
       // searchBackground: '#fafafa',
       bioBackground: '#fafafa',
       border: '#dcdadb',
+      borderThin: '#efefef',
       searchPlaceholderText: '#dcdadb',
       text: '#dcdadb',
       textSecondary: '#8E8E8E',

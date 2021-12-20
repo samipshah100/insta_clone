@@ -15,6 +15,8 @@ export default function CardContent({ item }) {
         //  minHeight: ,
         maxHeight: 614,
         height: 614,
+        borderBottom: `${theme.insta.borderThin} 1px solid`,
+
         // width: 614,
         position: 'relative',
       }}
