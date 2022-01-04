@@ -1,6 +1,12 @@
 import { useTheme } from '@mui/material/styles'
 import { Button, Typography } from '@mui/material'
-export default function ButtonComponent({ primary, children }) {
+export default function ButtonComponent({
+  disabled,
+  disableRipple,
+  onClick,
+  primary,
+  children,
+}) {
   // console.log(
   //   '🚀 ~ file: ButtonComponent.js ~ line 4 ~ ButtonComponent ~ primary',
   //   primary
@@ -15,6 +21,8 @@ export default function ButtonComponent({ primary, children }) {
         whiteSpace: 'nowrap',
         color: 'red',
       }}
+      disableRipple={disableRipple}
+      onClick={onClick}
     >
       <Typography
         sx={{
@@ -23,6 +31,7 @@ export default function ButtonComponent({ primary, children }) {
           textTransform: 'none',
           // fontFamily: 'Segoe UI',
           color: primary ? 'white' : theme.insta.button,
+          opacity: disabled ? 0.4 : 1,
           // TODO
         }}
       >

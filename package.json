@@ -9,11 +9,14 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "^5.2.0",
     "@mui/material": "latest",
+    "@reduxjs/toolkit": "^1.7.1",
     "clsx": "latest",
     "next": "latest",
+    "next-redux-wrapper": "^7.0.5",
     "prop-types": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-redux": "^7.2.6"
   },
   "scripts": {
     "dev": "next",

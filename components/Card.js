@@ -5,6 +5,7 @@ import { Box } from '@mui/material'
 import CardHeader from '@/components/CardHeader'
 import CardContent from '@/components/CardContent'
 import CardButtons from '@/components/CardButtons'
+import AddComment from '@/components/AddComment'
 import CardComments from '@/components/CardComments'
 export default function Card({ item }) {
   // console.log('🚀 ~ file: Card.js ~ line 8 ~ Card ~ item', item)
@@ -25,7 +26,7 @@ export default function Card({ item }) {
       <CardContent item={item} />
       <CardButtons />
       <CardComments />
-      {/* <CardAddComment/> */}
+      <AddComment handleAddComment={handleAddComment} />
     </Box>
   )
 }
