@@ -10,6 +10,8 @@ import CardComments from '@/components/CardComments'
 export default function Card({ item }) {
   // console.log('🚀 ~ file: Card.js ~ line 8 ~ Card ~ item', item)
   const theme = useTheme()
+  const handleAddComment = (params) => {}
+
   return (
     <Box
       id="cardcontainer_"

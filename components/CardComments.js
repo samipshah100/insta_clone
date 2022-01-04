@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Box, ButtonBase } from '@mui/material'
 import HeartRed from '@/icons/HeartRed'
 import HeartOutline from '@/icons/HeartOutline'
+import { useSelector, useDispatch } from 'react-redux'
 
 export default function CardComments() {
   const commentsListRaw = [
@@ -16,11 +17,17 @@ export default function CardComments() {
       author: 'anotherUser',
       text: 'Another comment here.',
       isLiked: false,
+
       timestamp: Date.now(),
       id: '2',
     },
   ]
   const [commentsList, setCommentsList] = useState(commentsListRaw)
+  const commentsRedux = useSelector((state) => state.comments)
+  console.log(
+    '🚀 ~ file: CardComments.js ~ line 27 ~ CardComments ~ comments',
+    commentsRedux
+  )
 
   const handleClickLike = (index) => {
     const list = [...commentsList]
