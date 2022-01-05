@@ -2,8 +2,31 @@ import React, { useState } from 'react'
 import { InputBase, Typography, Box } from '@mui/material'
 import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon'
 import ButtonComponent from '@/components/ButtonComponent'
-export default function AddComment({ handleAddComment }) {
+import { useDispatch } from 'react-redux'
+import { postComment } from '@/redux/commentsSlice'
+
+export default function AddComment({}) {
   const [comment, setComment] = useState('')
+  const dispatch = useDispatch()
+  const handlePostComment = () => {
+    try {
+      if (!comment) {
+        alert('Please enter some text')
+        return
+      }
+      const commentObj = {
+        author: 'codefinity_official',
+        text: comment,
+        isLiked: false,
+        timestamp: Date.now(),
+        id: `${Math.random()}`,
+      }
+      setComment('')
+      dispatch(postComment(commentObj))
+    } catch (e) {
+      alert('An error occured.')
+    }
+  }
 
   return (
     <Box
@@ -30,9 +53,9 @@ export default function AddComment({ handleAddComment }) {
         value={comment}
         onChange={(e) => setComment(e.target.value)}
       />
-      <Box sx={{ display: 'flex', ml: 'auto', alignSelf: 'flex-end' }}>
+      <Box sx={{ display: 'flex', ml: 'auto', alignSelf: 'center' }}>
         <ButtonComponent
-          onClick={handleAddComment}
+          onClick={handlePostComment}
           disableRipple
           disabled={!comment}
         >

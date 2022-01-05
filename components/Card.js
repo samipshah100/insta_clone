@@ -7,7 +7,7 @@ import CardContent from '@/components/CardContent'
 import CardButtons from '@/components/CardButtons'
 import AddComment from '@/components/AddComment'
 import CardComments from '@/components/CardComments'
-export default function Card({ item }) {
+export default function Card({ item, index }) {
   // console.log('🚀 ~ file: Card.js ~ line 8 ~ Card ~ item', item)
   const theme = useTheme()
   const handleAddComment = (params) => {}

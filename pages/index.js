@@ -53,8 +53,8 @@ export default function Index({ list }) {
               // flex: '0 0 100%',
             }}
           >
-            {list.map((item) => (
-              <Card item={item} key={item.toString()} />
+            {list.map((item, index) => (
+              <Card item={item} index={index} key={item.toString()} />
             ))}
           </Box>
           <RightSidebar list={list} />
