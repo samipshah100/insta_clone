@@ -43,6 +43,10 @@ export const commentsSlice = createSlice({
     postComment: (state, action) => {
       state.commentsList = [...state.commentsList, action.payload]
     },
+    toggleCommentLike: (state, action) => {
+      const index = action.payload
+      state.commentsList[index].isLiked = !state.commentsList[index].isLiked
+    },
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
@@ -56,6 +60,6 @@ export const commentsSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { postComment } = commentsSlice.actions
+export const { postComment, toggleCommentLike } = commentsSlice.actions
 
 export default commentsSlice.reducer

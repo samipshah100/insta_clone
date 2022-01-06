@@ -3,13 +3,19 @@ import { Box, ButtonBase } from '@mui/material'
 import HeartRed from '@/icons/HeartRed'
 import HeartOutline from '@/icons/HeartOutline'
 import { useSelector, useDispatch } from 'react-redux'
+import { toggleCommentLike } from '@/redux/commentsSlice'
 
 export default function CardComments() {
+  const dispatch = useDispatch()
   const commentsList = useSelector((state) => state.comments.commentsList)
   const handleClickLike = (index) => {
-    const list = [...commentsList]
-    list[index].isLiked = !list[index].isLiked
-    setCommentsList(list)
+    dispatch(toggleCommentLike(index))
+    // let list = [...commentsList]
+    // // console.log(list[index].isLiked)
+    // list[0].name = 'samip'
+    // console.log(list)
+    // list[index].isLiked = !list[index].isLiked
+    // console.log(list, 'changed this', list[index].isLiked, !list[index].isLiked)
   }
   // const handleClickLike = (index) => {
   //   const list = [...commentsList]
