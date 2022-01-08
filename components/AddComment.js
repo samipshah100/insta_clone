@@ -33,7 +33,7 @@ export default function AddComment({}) {
       sx={(theme) => ({
         marginTop: 2,
         borderTop: `${theme.insta.border} 1px solid`,
-        // borderBottom: `${theme.insta.border} 1px solid`,
+        borderBottom: `${theme.insta.border} 1px solid`,
         p: 1,
         display: 'flex',
         flexDirection: 'row',

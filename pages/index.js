@@ -29,7 +29,7 @@ export default function Index({ list }) {
         <Box
           id="contentContainer_"
           sx={{
-            paddingTop: '30px',
+            paddingTop: [0, 0, '30px'],
             maxWidth: 960,
             display: 'flex',
             flexDirection: 'row',

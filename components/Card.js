@@ -19,7 +19,7 @@ export default function Card({ item, index }) {
         // maxWidth: 614,
         display: 'flex',
         flexDirection: 'column',
-        border: `${theme.insta.border} 1px solid`,
+        border: [0, 0, `${theme.insta.border} 1px solid`],
         marginBottom: 4,
         backgroundColor: '#fff',
       }}
