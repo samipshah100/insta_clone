@@ -14,10 +14,9 @@ export default function CardContent({ item }) {
         maxWidth: 614,
         //  minHeight: ,
         maxHeight: 614,
-        height: 614,
         borderBottom: `${theme.insta.borderThin} 1px solid`,
-
-        // width: 614,
+        height: '100vw',
+        width: '100vw',
         position: 'relative',
       }}
     >
@@ -25,10 +24,11 @@ export default function CardContent({ item }) {
         src={path}
         // src="/images/pic.jpeg"
         layout="fill"
-        // height={600}
-        // width={600}
+        // height={'100%'}
+        // width={'100%'}
         className={styles.image}
         priority
+        objectFit="contain"
       />
       {/* <img src="/images/instaLogo.png" /> */}
     </Box>
