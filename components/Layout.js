@@ -3,7 +3,7 @@ import { Box } from '@mui/material'
 import TopAppbar from '@/components/TopAppbar'
 import BottomAppbar from '@/components/BottomAppbar'
 import { useTheme } from '@mui/material/styles'
-export default function Layout({ children, isLoggedIn }) {
+export default function Layout({ isProfile, children, isLoggedIn }) {
   const theme = useTheme()
 
   return (
@@ -14,7 +14,7 @@ export default function Layout({ children, isLoggedIn }) {
         flexDirection: 'column',
       }}
     >
-      <TopAppbar isLoggedIn={isLoggedIn} />
+      <TopAppbar isProfile={isProfile} isLoggedIn={isLoggedIn} />
       {children}
       <BottomAppbar isLoggedIn={isLoggedIn} />
     </Box>

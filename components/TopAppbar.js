@@ -1,9 +1,7 @@
 import * as React from 'react'
 import { useTheme } from '@mui/material/styles'
 import AppBar from '@mui/material/AppBar'
-import { Box, Avatar } from '@mui/material'
-import Toolbar from '@mui/material/Toolbar'
-import InputBase from '@mui/material/InputBase'
+import { Box, Avatar, Typography, Toolbar, InputBase } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import ButtonComponent from './ButtonComponent'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
@@ -12,12 +10,16 @@ import HomeIcon from '@/icons/HomeIcon'
 import Message from '@/icons/Message'
 import AddIcon from '@/icons/AddIcon'
 import Discover from '@/icons/Discover'
+import BackButton from '@/icons/BackButton'
 import Liked from '@/icons/Liked'
 import CameraIcon from '@/icons/CameraIcon'
 import LinearProgress from '@/components/LinearProgress'
+import { useRouter } from 'next/router'
 
 export default function TopAppbar(props) {
   const theme = useTheme()
+  const router = useRouter()
+  const { profile } = router.query
 
   function HideOnScroll(props) {
     const { children, window } = props
@@ -33,7 +35,7 @@ export default function TopAppbar(props) {
     )
   }
 
-  const { isLoggedIn, isLoading } = props
+  const { isLoggedIn, isLoading, isProfile } = props
   return (
     <>
       <Box
@@ -98,7 +100,7 @@ export default function TopAppbar(props) {
             >
               {/* camericon for mobile */}
               <Box id="cameraicon" sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <CameraIcon />
+                {isProfile ? <BackButton /> : <CameraIcon />}
               </Box>
 
               {/* Logo */}
@@ -118,11 +120,24 @@ export default function TopAppbar(props) {
                   },
                 }}
               >
-                <img
-                  id="imagelogo"
-                  src="/images/instaLogo.png"
-                  // style={{ width: 100, height: 30 }}
-                />
+                {/* On home show logo, On profile show the user text */}
+                {isProfile ? (
+                  <Typography
+                    sx={{
+                      color: theme.insta.text,
+                      fontWeight: '600',
+                      fontSize: 16,
+                    }}
+                  >
+                    {profile}
+                  </Typography>
+                ) : (
+                  <img
+                    id="imagelogo"
+                    src="/images/instaLogo.png"
+                    // style={{ width: 100, height: 30 }}
+                  />
+                )}
               </Box>
               {/* <Box
               id="idunno"
@@ -177,16 +192,18 @@ export default function TopAppbar(props) {
               {/* </Box> */}
 
               {/* MOBILE - logged in message icon */}
-              <Box
-                id="loggedinicons_"
-                sx={{
-                  display: { xs: 'flex', md: 'none' },
-                  // display: 'flex',
-                  flexDirection: 'row',
-                }}
-              >
-                <Message />
-              </Box>
+              {!isProfile && (
+                <Box
+                  id="loggedinicons_"
+                  sx={{
+                    display: { xs: 'flex', md: 'none' },
+                    // display: 'flex',
+                    flexDirection: 'row',
+                  }}
+                >
+                  <Message />
+                </Box>
+              )}
               {/* WEB - logged in user icons */}
               <Box
                 id="loggedinicons_"
@@ -219,7 +236,10 @@ export default function TopAppbar(props) {
                     <AddIcon />
                     <Discover />
                     <Liked />
-                    <Avatar sx={{ height: 24, width: 24 }} />
+                    <Avatar
+                      sx={{ height: 24, width: 24 }}
+                      src="./images/samip.jpeg"
+                    />
                   </Box>
                 )}
               </Box>
