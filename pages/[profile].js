@@ -3,7 +3,7 @@ import Layout from '@/components/Layout'
 import { Box, Avatar } from '@mui/material'
 export default function profile() {
   return (
-    <Layout isProfile>
+    <Layout isProfile isLoggedIn>
       <Box
         sx={{
           display: 'flex',

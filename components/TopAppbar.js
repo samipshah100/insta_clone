@@ -120,17 +120,32 @@ export default function TopAppbar(props) {
                   },
                 }}
               >
-                {/* On home show logo, On profile show the user text */}
+                {/* On home show logo, 
+                On profile show the user text  on mobile and logo on rest*/}
                 {isProfile ? (
-                  <Typography
-                    sx={{
-                      color: theme.insta.text,
-                      fontWeight: '600',
-                      fontSize: 16,
-                    }}
-                  >
-                    {profile}
-                  </Typography>
+                  <>
+                    <Typography
+                      sx={{
+                        color: theme.insta.text,
+                        fontWeight: '600',
+                        fontSize: 16,
+                        display: ['flex', 'flex', 'none'],
+                      }}
+                    >
+                      {profile}
+                    </Typography>
+                    <Box
+                      sx={{
+                        display: ['none', 'none', 'flex'],
+                      }}
+                    >
+                      <img
+                        id="imagelogo"
+                        src="/images/instaLogo.png"
+                        // style={{ width: 100, height: 30 }}
+                      />
+                    </Box>
+                  </>
                 ) : (
                   <img
                     id="imagelogo"
