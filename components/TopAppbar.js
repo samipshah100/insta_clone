@@ -82,12 +82,12 @@ export default function TopAppbar(props) {
                 paddingRight: {
                   xs: 'auto',
                   md: '70px',
-                  lg: '300px',
+                  lg: '250px',
                 },
                 paddingLeft: {
                   xs: 'auto',
                   md: '70px',
-                  lg: '300px',
+                  lg: '250px',
                 },
 
                 // height: 54,
@@ -105,6 +105,8 @@ export default function TopAppbar(props) {
 
               {/* Logo */}
               <Box
+                as="a"
+                href="/"
                 id="logocontainer_"
                 sx={{
                   display: 'flex',

@@ -10,7 +10,7 @@ import { wrapper, store } from '../redux/store'
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
 import { Provider } from 'react-redux'
-
+// import '../styles/App.css'
 function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
 
