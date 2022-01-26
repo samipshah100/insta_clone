@@ -10,20 +10,7 @@ const theme = createTheme({
     secondary: {
       main: '#19857b',
     },
-    // insta: {
-    //   // searchBackground: '#fafafa',
-    //   bioBackground: '#fafafa',
-    //   border: '#dcdadb',
-    //   borderThin: '#efefef',
-    //   searchPlaceholderText: '#dcdadb',
-    //   text: '#dcdadb',
-    //   textSecondary: '#8E8E8E',
-    //   linkText: '#0f4273',
-    //   button: '#0095f6',
-    //   buttonText: 'white',
-    //   icon: '#908e8f',
-    //   subtitleText: '#929292',
-    // },
+
     error: {
       main: red.A400,
     },

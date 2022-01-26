@@ -1,13 +1,14 @@
 import React from 'react'
 import Layout from '@/components/Layout'
-import { Box, Avatar, Typography } from '@mui/material'
+import { Divider, Box, Avatar, Typography } from '@mui/material'
 import { useTheme } from '@mui/material'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 import DoneIcon from '@mui/icons-material/Done'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import PersonIcon from '@mui/icons-material/Person'
 import StoriesAvatarComponent from '@/components/StoriesAvatarComponent'
-export default function profile({ list }) {
+import ProfilePhotosList from '@/components/ProfilePhotosList'
+export default function profile({ storiesList, postsList }) {
   const theme = useTheme()
   return (
     <Layout isProfile isLoggedIn>
@@ -35,8 +36,7 @@ export default function profile({ list }) {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            height: 300,
-            marginBottom: [0, 0, 5],
+            mb: 7,
           }}
         >
           {/* avatar Left*/}
@@ -189,16 +189,53 @@ export default function profile({ list }) {
             </Box>
           </Box>
         </Box>
-        {/* Stories */}
 
-        {list.map((item) => (
-          <StoriesAvatarComponent
-            key={item.id}
-            src={item.url}
-            description={item.author}
-          />
-        ))}
+        {/* Stories */}
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+          }}
+        >
+          {storiesList.map((item) => (
+            <StoriesAvatarComponent
+              key={item.id}
+              src={item.download_url}
+              category={item.category}
+            />
+          ))}
+        </Box>
+
         {/* Photos */}
+        <Divider
+        //  light
+        />
+        <Box
+          id="_profilephotolabels"
+          sx={{
+            flexDirection: 'row',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            mb: 2,
+            mt: 2,
+          }}
+        >
+          <Box sx={{ fontSize: 12, color: theme.insta.text, mr: 5 }}>POSTS</Box>
+          <Box
+            sx={{
+              fontSize: 12,
+              color: theme.insta.searchPlaceholderText,
+              mr: 5,
+            }}
+          >
+            REELS
+          </Box>
+          <Box sx={{ fontSize: 12, color: theme.insta.searchPlaceholderText }}>
+            TAGGED
+          </Box>
+        </Box>
+        <ProfilePhotosList />
         {/* Footer */}
       </Box>
     </Layout>
@@ -208,14 +245,27 @@ export default function profile({ list }) {
 export async function getServerSideProps() {
   try {
     // const url = 'https://reqres.in/api/users?delay=3'
-    const url = 'https://picsum.photos/v2/list?limit=10'
+    const url = 'https://picsum.photos/v2/list?limit=5'
     const res = await fetch(url)
-    const list = await res.json()
+    const storiesListRaw = await res.json()
+
+    const categories = ['Me', 'Family', 'Friends', 'Bday', 'Diwali']
+
+    const storiesList = storiesListRaw.map((item, index) => ({
+      ...item,
+      category: categories[index],
+    }))
+    // console.log(
+    //   '🚀 ~ file: [profile].js ~ line 228 ~ storiesList ~ storiesList',
+    //   storiesList
+    // )
+    const postsRes = await fetch('https://picsum.photos/v2/list?limit=20')
+    const postsList = await postsRes.json()
 
     return {
-      props: { list, error: null },
+      props: { storiesList, postsList, error: null },
     }
   } catch (error) {
-    return { props: { error, list: null } }
+    return { props: { error, storiesList: null, postsLsist: null } }
   }
 }
