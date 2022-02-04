@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Avatar, Typography, Box } from '@mui/material'
 export default function StoriesAvatarComponent({ src, category }) {
   return (
@@ -7,7 +7,8 @@ export default function StoriesAvatarComponent({ src, category }) {
         display: 'flex',
         flexDirection: 'column',
         ml: 5,
-        mb: [0, 0, 7],
+        // mb: [0, 0, 7],
+        mb: 7,
         alignItems: 'center',
       }}
     >
