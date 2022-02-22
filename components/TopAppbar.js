@@ -60,6 +60,7 @@ export default function TopAppbar(props) {
               backgroundColor: 'white',
               borderBottom: `1px ${theme.insta.border} solid`,
               display: 'flex',
+
               // alignItems: 'flex-start',
               // justifyContent: 'center',
               // justifyContent: 'flex-start',

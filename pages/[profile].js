@@ -3,31 +3,43 @@ import Layout from '@/components/Layout'
 import { Divider, Box, Avatar, Typography } from '@mui/material'
 import { useTheme } from '@mui/material'
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
-import DoneIcon from '@mui/icons-material/Done'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import PersonIcon from '@mui/icons-material/Person'
+
 import StoriesAvatarComponent from '@/components/StoriesAvatarComponent'
 import ProfilePhotosList from '@/components/ProfilePhotosList'
+import ProfileFollowButtons from '@/components/ProfileFollowButtons'
 export default function profile({ storiesList, postsList }) {
   const theme = useTheme()
   return (
     <Layout isProfile isLoggedIn>
+      {/*  profile container = maxwidth = 975 */}
       <Box
         id="_profilecontainer"
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          paddingRight: {
-            xs: 'auto',
-            md: '70px',
-            lg: '250px',
-          },
-          paddingLeft: {
-            xs: 'auto',
-            md: '70px',
-            lg: '250px',
-          },
+          ml: 'auto',
+          mr: 'auto',
           mt: 3,
+          maxWidth: '975px',
+          width: '100%',
+          // paddingRight: {
+          //   // xs: 'auto',
+          //   // md: '70px',
+          //   // lg: '250px',
+          //   // xs: '20px',
+          //   xs: 0,
+          //   md: 0,
+          //   lg: 0,
+          // },
+          // paddingLeft: {
+          //   // xs: 'auto',
+          //   // md: '70px',
+          //   // lg: '250px',
+          //   // xs: '20px',
+          //   xs: 0,
+          //   md: 0,
+          //   lg: 0,
+          // },
         }}
       >
         {/* Profile avatar and details */}
@@ -42,7 +54,22 @@ export default function profile({ storiesList, postsList }) {
           {/* avatar Left*/}
           <Avatar
             id="_avatar"
-            sx={{ height: 150, width: 150, ml: 5 }}
+            sx={{
+              height: {
+                xs: 77,
+                md: 150,
+              },
+              width: {
+                xs: 77,
+                md: 150,
+              },
+              ml: {
+                xs: 2,
+                md: 5,
+              },
+              // xs:{ height: 77, width: 77, ml: 2 },
+              // md:{ height: 150, width: 150, ml: 5 }
+            }}
             src="./images/samip.jpeg"
           ></Avatar>
 
@@ -52,7 +79,7 @@ export default function profile({ storiesList, postsList }) {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              ml: 10,
+              ml: { xs: 2, md: 10 },
             }}
           >
             {/* Username and buttons */}
@@ -61,75 +88,41 @@ export default function profile({ storiesList, postsList }) {
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
+                maxWidth: { xs: '70%', md: 'auto' },
               }}
             >
-              <Typography sx={{ fontSize: 24, color: theme.insta.text }}>
+              <Typography
+                sx={{
+                  fontSize: 24,
+                  color: theme.insta.text,
+                  textOverflow: 'ellipsis',
+                  overflow: 'hidden',
+                }}
+              >
                 codefinity_official
               </Typography>
 
-              <Typography
-                sx={{
-                  border: `1px solid ${theme.insta.border}`,
-                  width: 80,
-                  height: 30,
-                  // padding: '5px',
-                  fontSize: 14,
-                  fontWeight: 'bold',
-                  ml: 4,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  color: theme.insta.text,
-                }}
-              >
-                Message
-              </Typography>
+              {/* display profile buttons here for tablet and above */}
               <Box
                 sx={{
-                  border: `1px solid ${theme.insta.border}`,
-                  width: 80,
-                  height: 30,
-                  // padding: '5px',
-                  fontSize: 14,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  ml: 1,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: theme.insta.text,
+                  display: {
+                    xs: 'none',
+                    sm: 'flex',
+                  },
                 }}
               >
-                <PersonIcon
-                  sx={{
-                    width: 18,
-                  }}
-                />
-                <DoneIcon sx={{ width: 10 }} />
+                <ProfileFollowButtons />
               </Box>
-              <Box
-                sx={{
-                  border: `1px solid ${theme.insta.border}`,
-                  width: 30,
-                  height: 30,
-                  padding: '5px',
-                  fontSize: 14,
-                  display: 'flex',
-                  flexDirection: 'row',
-                  ml: 1,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <KeyboardArrowDownIcon sx={{ width: 18 }} />
+
+              <Box sx={{ ml: 2 }}>
+                <MoreHorizIcon />
               </Box>
-              <Box sx={{ ml: 1 }}></Box>
-              <MoreHorizIcon />
             </Box>
 
-            {/* Follower details*/}
+            {/* Follower details only for tablet and above */}
             <Box
               sx={{
-                display: 'flex',
+                display: { xs: 'none', md: 'flex' },
                 flexDirection: 'row',
                 mt: 4,
                 color: theme.insta.text,
@@ -195,6 +188,8 @@ export default function profile({ storiesList, postsList }) {
           sx={{
             display: 'flex',
             flexDirection: 'row',
+            overflowY: 'scroll',
+            width: '100%',
           }}
         >
           {storiesList.map((item) => (
@@ -235,7 +230,8 @@ export default function profile({ storiesList, postsList }) {
             TAGGED
           </Box>
         </Box>
-        <ProfilePhotosList />
+
+        {/* <ProfilePhotosList /> */}
         {/* Footer */}
       </Box>
     </Layout>
