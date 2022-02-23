@@ -8,6 +8,9 @@ import StoriesAvatarComponent from '@/components/StoriesAvatarComponent'
 import ProfilePhotosList from '@/components/ProfilePhotosList'
 import MainAvatarComponent from '@/components/MainAvatarComponent'
 import ProfileFollowButtons from '@/components/ProfileFollowButtons'
+import ProfileMobileIcon from '@/components/icons/ProfileMobileIcon'
+import ReelsIcon from '@/components/icons/ReelsIcon'
+import ProfileIcon from '@/components/icons/ProfileIcon'
 export default function profile({ storiesList, postsList }) {
   const theme = useTheme()
   const followersCount = 444
@@ -226,16 +229,20 @@ export default function profile({ storiesList, postsList }) {
           ))}
         </Box>
 
+        {/* divider only for mobile */}
+        <Divider
+          sx={{
+            display: { xs: 'flex', sm: 'none' },
+          }}
+        />
+
         {/* The followers details for mobile online
          */}
-        <Divider />
         <Box
           sx={{
             display: ['flex', 'none'],
             flexDirection: 'row',
             justifyContent: 'space-evenly',
-            // pl: 2,
-            // pr: 2,
             mb: 1,
             mt: 1,
           }}
@@ -313,15 +320,39 @@ export default function profile({ storiesList, postsList }) {
           </Box>
         </Box>
 
-        {/* Photos */}
+        {/* divider only for mobile */}
         <Divider
-        //  light
+          sx={{
+            display: { xs: 'flex', sm: 'none' },
+          }}
         />
+
+        {/* navigation icons only for mobile */}
+
+        <Box
+          id="_navigationicons"
+          sx={{
+            display: ['flex', 'none'],
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+            alignItems: 'center',
+            mb: '6px',
+            mt: '11px',
+          }}
+        >
+          <ProfileMobileIcon />
+          <ReelsIcon />
+          <ProfileIcon />
+        </Box>
+        {/* Photos */}
+        <Divider />
+
+        {/* Navigation options for tablet and above */}
         <Box
           id="_profilephotolabels"
           sx={{
             flexDirection: 'row',
-            display: 'flex',
+            display: ['none', 'flex'],
             justifyContent: 'center',
             alignItems: 'center',
             mb: 2,
