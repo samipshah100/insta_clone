@@ -6,6 +6,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz'
 
 import StoriesAvatarComponent from '@/components/StoriesAvatarComponent'
 import ProfilePhotosList from '@/components/ProfilePhotosList'
+import MainAvatarComponent from '@/components/MainAvatarComponent'
 import ProfileFollowButtons from '@/components/ProfileFollowButtons'
 export default function profile({ storiesList, postsList }) {
   const theme = useTheme()
@@ -52,26 +53,9 @@ export default function profile({ storiesList, postsList }) {
           }}
         >
           {/* avatar Left*/}
-          <Avatar
-            id="_avatar"
-            sx={{
-              height: {
-                xs: 77,
-                sm: 150,
-              },
-              width: {
-                xs: 77,
-                sm: 150,
-              },
-              ml: {
-                xs: 2,
-                sm: 5,
-              },
-              // xs:{ height: 77, width: 77, ml: 2 },
-              // md:{ height: 150, width: 150, ml: 5 }
-            }}
-            src="./images/samip.jpeg"
-          ></Avatar>
+          <Box sx={{ ml: [2, 5] }}>
+            <MainAvatarComponent src="./images/samip.jpeg" />
+          </Box>
 
           {/* All user details on right  */}
           <Box
@@ -208,9 +192,12 @@ export default function profile({ storiesList, postsList }) {
           sx={{
             display: { xs: 'flex', sm: 'none' },
             flexDirection: 'row',
-            // mt: 1,
+            mt: 1,
+            mb: 3,
+            ml: 2,
+            mr: 2,
             color: theme.insta.text,
-            fontSize: 16,
+            fontSize: 14,
           }}
         >
           Hi, my name is samip and I am the founder of codefinity_official.
@@ -221,8 +208,9 @@ export default function profile({ storiesList, postsList }) {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            overflowY: 'scroll',
+            // overflowY: 'scroll',
             width: '100%',
+            overflow: 'hidden',
           }}
         >
           {storiesList.map((item) => (

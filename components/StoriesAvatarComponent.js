@@ -12,16 +12,33 @@ export default function StoriesAvatarComponent({ src, category }) {
         alignItems: 'center',
       }}
     >
-      <Avatar
+      {/* border box */}
+
+      <Box
         sx={{
-          height: [56, 77],
-          width: [56, 77],
-          // height: { xs: 56, sm: 77 },
-          // width: { xs: 56, sm: 77 },
+          height: [64, 85],
+          width: [64, 85],
+          borderRadius: '50%',
+          padding: '3px',
+          // display: 'inline-block',
+          // boxSizing: 'border-box',
+          border: '1px solid #e6e6e6',
         }}
-        src={src}
-      ></Avatar>
-      <Typography sx={{ mt: [1, 2], fontSize: [12, 14] }}>
+      >
+        <Avatar
+          sx={{
+            height: [56, 77],
+            width: [56, 77],
+            // height: { xs: 56, sm: 77 },
+            // width: { xs: 56, sm: 77 },
+          }}
+          src={src}
+        />
+      </Box>
+
+      <Typography
+        sx={{ mt: [1, 2], fontSize: [12, 14], fontWeight: ['regular', 'bold'] }}
+      >
         {category}
       </Typography>
     </Box>
