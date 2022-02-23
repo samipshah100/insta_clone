@@ -10,6 +10,10 @@ import MainAvatarComponent from '@/components/MainAvatarComponent'
 import ProfileFollowButtons from '@/components/ProfileFollowButtons'
 export default function profile({ storiesList, postsList }) {
   const theme = useTheme()
+  const followersCount = 444
+  const followingCount = 666
+  const postsCount = 45
+
   return (
     <Layout isProfile isLoggedIn>
       {/*  profile container = maxwidth = 975 */}
@@ -128,7 +132,7 @@ export default function profile({ storiesList, postsList }) {
                 }}
               >
                 <Typography sx={{ fontWeight: 'bold', mr: 1, fontSize: 16 }}>
-                  21{' '}
+                  {postsCount}
                 </Typography>
                 posts
               </Box>
@@ -141,7 +145,7 @@ export default function profile({ storiesList, postsList }) {
                 }}
               >
                 <Typography sx={{ fontWeight: 'bold', mr: 1, fontSize: 16 }}>
-                  451{' '}
+                  {followersCount}
                 </Typography>
                 followers
               </Box>
@@ -153,7 +157,7 @@ export default function profile({ storiesList, postsList }) {
                 }}
               >
                 <Typography sx={{ fontWeight: 'bold', mr: 1, fontSize: 16 }}>
-                  399{' '}
+                  {followingCount}
                 </Typography>
                 following
               </Box>
@@ -220,6 +224,93 @@ export default function profile({ storiesList, postsList }) {
               category={item.category}
             />
           ))}
+        </Box>
+
+        {/* The followers details for mobile online
+         */}
+        <Divider />
+        <Box
+          sx={{
+            display: ['flex', 'none'],
+            flexDirection: 'row',
+            justifyContent: 'space-evenly',
+            // pl: 2,
+            // pr: 2,
+            mb: 1,
+            mt: 1,
+          }}
+        >
+          {/* posts */}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              '& span': {
+                fontSize: 14,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              },
+            }}
+          >
+            <Typography
+              as="span"
+              sx={{ fontWeight: 'bold', color: theme.insta.text }}
+            >
+              {postsCount}
+            </Typography>
+            <Typography as="span" sx={{ color: theme.insta.textSecondary }}>
+              posts
+            </Typography>
+          </Box>
+
+          {/* followers */}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              '& span': {
+                fontSize: 14,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              },
+            }}
+          >
+            <Typography
+              as="span"
+              sx={{ fontWeight: 'bold', color: theme.insta.text }}
+            >
+              {followersCount}
+            </Typography>
+            <Typography as="span" sx={{ color: theme.insta.textSecondary }}>
+              followers
+            </Typography>
+          </Box>
+
+          {/* following */}
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              '& span': {
+                fontSize: 14,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              },
+            }}
+          >
+            <Typography
+              as="span"
+              sx={{ fontWeight: 'bold', color: theme.insta.text }}
+            >
+              {followingCount}
+            </Typography>
+            <Typography as="span" sx={{ color: theme.insta.textSecondary }}>
+              following
+            </Typography>
+          </Box>
         </Box>
 
         {/* Photos */}
