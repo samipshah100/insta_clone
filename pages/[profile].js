@@ -48,7 +48,7 @@ export default function profile({ storiesList, postsList }) {
           sx={{
             display: 'flex',
             flexDirection: 'row',
-            mb: 7,
+            mb: { xs: 2, sm: 7 },
           }}
         >
           {/* avatar Left*/}
@@ -57,15 +57,15 @@ export default function profile({ storiesList, postsList }) {
             sx={{
               height: {
                 xs: 77,
-                md: 150,
+                sm: 150,
               },
               width: {
                 xs: 77,
-                md: 150,
+                sm: 150,
               },
               ml: {
                 xs: 2,
-                md: 5,
+                sm: 5,
               },
               // xs:{ height: 77, width: 77, ml: 2 },
               // md:{ height: 150, width: 150, ml: 5 }
@@ -79,7 +79,7 @@ export default function profile({ storiesList, postsList }) {
             sx={{
               display: 'flex',
               flexDirection: 'column',
-              ml: { xs: 2, md: 10 },
+              ml: { xs: 2, sm: 10 },
             }}
           >
             {/* Username and buttons */}
@@ -88,19 +88,20 @@ export default function profile({ storiesList, postsList }) {
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
-                maxWidth: { xs: '70%', md: 'auto' },
               }}
             >
-              <Typography
-                sx={{
-                  fontSize: 24,
-                  color: theme.insta.text,
-                  textOverflow: 'ellipsis',
-                  overflow: 'hidden',
-                }}
-              >
-                codefinity_official
-              </Typography>
+              <Box sx={{ maxWidth: '70%' }}>
+                <Typography
+                  sx={{
+                    fontSize: 24,
+                    color: theme.insta.text,
+                    textOverflow: 'ellipsis',
+                    overflow: 'hidden',
+                  }}
+                >
+                  codefinity_official
+                </Typography>
+              </Box>
 
               {/* display profile buttons here for tablet and above */}
               <Box
@@ -109,12 +110,18 @@ export default function profile({ storiesList, postsList }) {
                     xs: 'none',
                     sm: 'flex',
                   },
+                  ml: 4,
                 }}
               >
                 <ProfileFollowButtons />
               </Box>
 
-              <Box sx={{ ml: 2 }}>
+              <Box
+                sx={{
+                  display: 'flex',
+                  ml: 2,
+                }}
+              >
                 <MoreHorizIcon />
               </Box>
             </Box>
@@ -122,7 +129,7 @@ export default function profile({ storiesList, postsList }) {
             {/* Follower details only for tablet and above */}
             <Box
               sx={{
-                display: { xs: 'none', md: 'flex' },
+                display: { xs: 'none', sm: 'flex' },
                 flexDirection: 'row',
                 mt: 4,
                 color: theme.insta.text,
@@ -168,10 +175,23 @@ export default function profile({ storiesList, postsList }) {
               </Box>
             </Box>
 
-            {/* Description*/}
+            {/* display profile buttons here for mobile */}
             <Box
               sx={{
-                display: 'flex',
+                display: {
+                  xs: 'flex',
+                  sm: 'none',
+                },
+                mt: 2,
+              }}
+            >
+              <ProfileFollowButtons />
+            </Box>
+
+            {/* Description here is for tablet and above*/}
+            <Box
+              sx={{
+                display: { xs: 'none', sm: 'flex' },
                 flexDirection: 'row',
                 mt: 3,
                 color: theme.insta.text,
@@ -181,6 +201,19 @@ export default function profile({ storiesList, postsList }) {
               Hi, my name is samip and I am the founder of codefinity_official.
             </Box>
           </Box>
+        </Box>
+
+        {/* Description here is for mobile */}
+        <Box
+          sx={{
+            display: { xs: 'flex', sm: 'none' },
+            flexDirection: 'row',
+            // mt: 1,
+            color: theme.insta.text,
+            fontSize: 16,
+          }}
+        >
+          Hi, my name is samip and I am the founder of codefinity_official.
         </Box>
 
         {/* Stories */}

@@ -6,20 +6,24 @@ export default function StoriesAvatarComponent({ src, category }) {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        ml: 5,
+        ml: [1, 5],
         // mb: [0, 0, 7],
-        mb: 7,
+        mb: ['20px', 7],
         alignItems: 'center',
       }}
     >
       <Avatar
         sx={{
-          height: 77,
-          width: 77,
+          height: [56, 77],
+          width: [56, 77],
+          // height: { xs: 56, sm: 77 },
+          // width: { xs: 56, sm: 77 },
         }}
         src={src}
       ></Avatar>
-      <Typography sx={{ mt: 2 }}>{category}</Typography>
+      <Typography sx={{ mt: [1, 2], fontSize: [12, 14] }}>
+        {category}
+      </Typography>
     </Box>
   )
 }

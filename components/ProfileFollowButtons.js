@@ -21,7 +21,6 @@ export default function ProfileFollowButtons() {
           // padding: '5px',
           fontSize: 14,
           fontWeight: 'bold',
-          ml: 4,
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
