@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ReelsIcon() {
+export default function ReelsIcon({ height = '24', width = '24' }) {
   return (
     <div>
       <svg
@@ -8,10 +8,10 @@ export default function ReelsIcon() {
         class="_8-yf5 "
         color="#8e8e8e"
         fill="#8e8e8e"
-        height="24"
+        height={height}
         role="img"
         viewBox="0 0 24 24"
-        width="24"
+        width={width}
       >
         <line
           fill="none"

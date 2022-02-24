@@ -36,8 +36,9 @@ export default function ProfilePhotosList({ postsList }) {
         container
         // spacing={{ xs: '14px', sm: 2 }}
       >
-        {postsList.map(({ download_url }) => (
+        {postsList.map(({ download_url }, index) => (
           <Grid
+            key={index}
             item
             xs={4}
             sx={{

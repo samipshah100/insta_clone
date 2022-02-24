@@ -8,9 +8,12 @@ import StoriesAvatarComponent from '@/components/StoriesAvatarComponent'
 import ProfilePhotosList from '@/components/ProfilePhotosList'
 import MainAvatarComponent from '@/components/MainAvatarComponent'
 import ProfileFollowButtons from '@/components/ProfileFollowButtons'
-import ProfileMobileIcon from '@/components/icons/ProfileMobileIcon'
+import ProfileFeedIcon from '@/components/icons/ProfileFeedIcon'
 import ReelsIcon from '@/components/icons/ReelsIcon'
-import ProfileIcon from '@/components/icons/ProfileIcon'
+import TaggedIcon from '@/components/icons/TaggedIcon'
+
+import SvgIcon from '@mui/material/SvgIcon'
+
 export default function profile({ storiesList, postsList }) {
   const theme = useTheme()
   const followersCount = 444
@@ -340,9 +343,9 @@ export default function profile({ storiesList, postsList }) {
             mt: '11px',
           }}
         >
-          <ProfileMobileIcon />
+          <ProfileFeedIcon />
           <ReelsIcon />
-          <ProfileIcon />
+          <TaggedIcon />
         </Box>
         {/* Photos */}
         <Divider />
@@ -355,22 +358,73 @@ export default function profile({ storiesList, postsList }) {
             display: ['none', 'flex'],
             justifyContent: 'center',
             alignItems: 'center',
-            mb: 2,
+            mb: 1,
             mt: 2,
           }}
         >
-          <Box sx={{ fontSize: 12, color: theme.insta.text, mr: 5 }}>POSTS</Box>
           <Box
             sx={{
-              fontSize: 12,
-              color: theme.insta.searchPlaceholderText,
               mr: 5,
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
             }}
           >
-            REELS
+            <ProfileFeedIcon height={'12'} width={'12'} />
+            <Box
+              as="span"
+              sx={{
+                fontSize: 12,
+                color: theme.insta.text,
+                fontWeight: '600',
+                ml: 1,
+              }}
+            >
+              POSTS
+            </Box>
           </Box>
-          <Box sx={{ fontSize: 12, color: theme.insta.searchPlaceholderText }}>
-            TAGGED
+          <Box
+            sx={{
+              mr: 5,
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}
+          >
+            <ReelsIcon height={'12'} width={'12'} />
+            <Box
+              as="span"
+              sx={{
+                fontSize: 12,
+                color: theme.insta.searchPlaceholderText,
+                fontWeight: '600',
+                ml: 1,
+              }}
+            >
+              REELS
+            </Box>
+          </Box>
+
+          <Box
+            sx={{
+              alignItems: 'center',
+
+              display: 'flex',
+              flexDirection: 'row',
+            }}
+          >
+            <TaggedIcon height={'12'} width={'12'} />
+            <Box
+              as="span"
+              sx={{
+                fontSize: 12,
+                color: theme.insta.searchPlaceholderText,
+                fontWeight: '600',
+                ml: 1,
+              }}
+            >
+              TAGGED
+            </Box>
           </Box>
         </Box>
 

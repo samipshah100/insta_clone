@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ProfileIcon() {
+export default function TaggedIcon({ height = 24, width = 24 }) {
   return (
     <div>
       <svg
@@ -8,10 +8,10 @@ export default function ProfileIcon() {
         class="_8-yf5 "
         color="#8e8e8e"
         fill="#8e8e8e"
-        height="24"
+        height={height}
         role="img"
         viewBox="0 0 24 24"
-        width="24"
+        width={width}
       >
         <path
           d="M10.201 3.797L12 1.997l1.799 1.8a1.59 1.59 0 001.124.465h5.259A1.818 1.818 0 0122 6.08v14.104a1.818 1.818 0 01-1.818 1.818H3.818A1.818 1.818 0 012 20.184V6.08a1.818 1.818 0 011.818-1.818h5.26a1.59 1.59 0 001.123-.465z"

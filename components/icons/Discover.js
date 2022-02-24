@@ -4,7 +4,7 @@ export default function Discover() {
   return (
     <svg
       aria-label="Find People"
-      class="_8-yf5 "
+      // class="_8-yf5 "
       color="#262626"
       fill="#262626"
       height="24"

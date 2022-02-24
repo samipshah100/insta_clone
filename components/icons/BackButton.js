@@ -5,7 +5,7 @@ export default function BackButton() {
     <Box sx={{ transform: 'rotate(270deg)' }}>
       <svg
         aria-label="Back"
-        class="_8-yf5 "
+        // class="_8-yf5 "
         color="#262626"
         fill="#262626"
         height="24"
