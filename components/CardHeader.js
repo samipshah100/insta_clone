@@ -37,13 +37,15 @@ export default function CardHeader() {
           }}
         />
         <Typography
-          as="span"
+          as="a"
           id="username_"
           sx={{
             fontWeight: 'bold',
             color: theme.insta.text,
             fontSize: 14,
+            textDecoration: 'none',
           }}
+          href={'/codefinity_official'}
         >
           codefinity_official
         </Typography>
