@@ -374,7 +374,7 @@ export default function profile({ storiesList, postsList }) {
           </Box>
         </Box>
 
-        {/* <ProfilePhotosList /> */}
+        <ProfilePhotosList postsList={postsList} />
         {/* Footer */}
       </Box>
     </Layout>
